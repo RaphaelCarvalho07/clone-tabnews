@@ -1,12 +1,32 @@
 import database from "infra/database";
 
 const status = async (req, res) => {
-  const result = await database.query("SELECT 1 + 1 as sum;");
-  console.log(result.rows);
+  const updatedAt = new Date().toISOString();
+
+  const { rows: versionRows } = await database.query("SHOW server_version;");
+  const { rows: maxConnectionsRows } = await database.query(
+    "SHOW max_connections",
+  );
+  const { rows: activeConnectionsRows } = await database.query(
+    "SELECT count(*) FROM pg_stat_activity;",
+  );
+
+  const version = versionRows[0].server_version;
+  const maxConnections = parseInt(maxConnectionsRows[0].max_connections, 10);
+  const activeConnections = parseInt(activeConnectionsRows[0].count, 10);
+  console.log("Max connections: ", maxConnections);
+
+  console.log("Active connections: ", activeConnections);
+
   res.status(200).json({
-    status: "ok",
-    message: "API is running smoothly",
-    timestamp: new Date().toISOString(),
+    updated_at: updatedAt,
+    dependencies: {
+      database: {
+        version: version,
+        max_connections: maxConnections,
+        active_connections: activeConnections,
+      },
+    },
   });
 };
 
