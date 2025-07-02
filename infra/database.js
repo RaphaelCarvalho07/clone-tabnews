@@ -10,7 +10,7 @@ const getSSLConfig = () => {
   }
   // Cloud database (e.g., Neon): use CA and validate certificate
   return {
-    ca: fs.readFileSync("infra/certificate/neon-ca.pem").toString(),
+    ca: process.env.NEON_CA_PEM,
     rejectUnauthorized: true,
   };
 };
