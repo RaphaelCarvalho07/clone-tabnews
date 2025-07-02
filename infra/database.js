@@ -1,4 +1,3 @@
-import fs from "fs";
 import { Client } from "pg";
 
 const isLocalhost = (host) => host === "localhost" || host === "127.0.0.1";
