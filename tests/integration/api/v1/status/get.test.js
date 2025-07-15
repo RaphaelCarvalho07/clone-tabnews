@@ -5,7 +5,7 @@ describe("API /api/v1/status", () => {
     baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   });
 
-  test("should return 200", async () => {
+  test("GET to /api/v1/status should return 200", async () => {
     const res = await fetch(`${baseUrl}/api/v1/status`);
     expect(res.status).toBe(200);
 
