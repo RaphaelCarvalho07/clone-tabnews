@@ -1,16 +1,12 @@
 import database from "infra/database.js";
-
-const cleanDatabase = async () => {
-  await database.query(
-    "drop schema if exists public cascade; create schema public;",
-  );
-};
+import orchestrator from "tests/orchestrator.js";
 
 describe("API /api/v1/migrations", () => {
   let baseUrl;
 
   beforeAll(async () => {
-    await cleanDatabase();
+    await orchestrator.waitForAllServices();
+    await database.query("drop schema public cascade; create schema public;");
     baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   });
 

@@ -1,7 +1,10 @@
+import orchestrator from "tests/orchestrator.js";
+
 describe("API /api/v1/status", () => {
   let baseUrl;
 
-  beforeAll(() => {
+  beforeAll(async () => {
+    await orchestrator.waitForAllServices();
     baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   });
 
