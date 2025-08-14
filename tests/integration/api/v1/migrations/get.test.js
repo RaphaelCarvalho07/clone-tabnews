@@ -5,8 +5,11 @@ describe("API /api/v1/migrations", () => {
   let baseUrl;
 
   beforeAll(async () => {
+    console.log("Aguardando orchestrator...");
     await orchestrator.waitForAllServices();
+    console.log("Limpando banco...");
     await database.query("drop schema public cascade; create schema public;");
+    console.log("Setando baseUrl...");
     baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   });
 

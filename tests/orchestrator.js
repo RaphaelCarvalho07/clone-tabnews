@@ -1,7 +1,11 @@
 import retry from "async-retry";
 
 const fetchStatusPage = async () => {
+  console.log("Fazendo fetch para status page...");
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/status`);
+  console.log("Status HTTP:", res.status);
+  const resBody = await res.json();
+  console.log("Resposta:", resBody);
 
   if (res.status !== 200) {
     throw Error();
@@ -9,6 +13,7 @@ const fetchStatusPage = async () => {
 };
 
 const waitForWebServer = async () => {
+  console.log("Esperando status do webserver...");
   return retry(fetchStatusPage, {
     retries: 100,
     maxTimeout: 1000,
@@ -16,7 +21,9 @@ const waitForWebServer = async () => {
 };
 
 const waitForAllServices = async () => {
+  console.log("Iniciando waitForAllServices");
   await waitForWebServer();
+  console.log("waitForWebServer finalizado");
 };
 
 export default {
