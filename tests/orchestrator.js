@@ -1,11 +1,7 @@
 import retry from "async-retry";
 
 const fetchStatusPage = async () => {
-  console.log("Fazendo fetch para status page...");
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/status`);
-  console.log("Status HTTP:", res.status);
-  const resBody = await res.json();
-  console.log("Resposta:", resBody);
 
   if (res.status !== 200) {
     throw Error();
