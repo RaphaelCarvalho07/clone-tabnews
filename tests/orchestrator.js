@@ -9,6 +9,7 @@ const fetchStatusPage = async () => {
 };
 
 const waitForWebServer = async () => {
+  console.log("Esperando status do webserver...");
   return retry(fetchStatusPage, {
     retries: 100,
     maxTimeout: 1000,
@@ -16,7 +17,9 @@ const waitForWebServer = async () => {
 };
 
 const waitForAllServices = async () => {
+  console.log("Iniciando waitForAllServices");
   await waitForWebServer();
+  console.log("waitForWebServer finalizado");
 };
 
 export default {

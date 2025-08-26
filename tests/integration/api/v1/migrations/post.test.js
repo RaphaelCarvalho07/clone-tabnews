@@ -8,7 +8,7 @@ describe("API /api/v1/migrations", () => {
     await orchestrator.waitForAllServices();
     await database.query("drop schema public cascade; create schema public;");
     baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-  });
+  }, 120000);
 
   test("POST to /api/v1/migrations should return 201", async () => {
     const res1 = await fetch(`${baseUrl}/api/v1/migrations`, {
