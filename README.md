@@ -1,3 +1,3 @@
 # clone-tabnews
 
-Implementation of https://www.tabnews.com.br for https://curso.dev. Follow me!
+Implementation of https://www.tabnews.com.br for https://curso.dev. Follow me!!
