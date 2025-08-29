@@ -19,25 +19,4 @@ describe("API /api/v1/migrations", () => {
     expect(Array.isArray(resBody)).toBe(true);
     expect(resBody.length).toBeGreaterThan(0);
   });
-
-  // test("GET to /api/v1/status should return database info", async () => {
-  //   const res = await fetch(`${baseUrl}/api/v1/status`);
-  //   expect(res.status).toBe(200);
-
-  //   const resBody = await res.json();
-  //   expect(resBody.dependencies.database).toBeDefined();
-  //   expect(resBody.dependencies.database.version).toBeDefined();
-  //   expect(resBody.dependencies.database.max_connections).toBeDefined();
-  //   expect(resBody.dependencies.database.active_connections).toBeDefined();
-
-  //   expect(typeof resBody.dependencies.database.version).toBe("string");
-  //   expect(typeof resBody.dependencies.database.max_connections).toBe("number");
-  //   expect(typeof resBody.dependencies.database.active_connections).toBe(
-  //     "number",
-  //   );
-
-  //   expect(resBody.dependencies.database.version).toEqual("16.0");
-  //   expect(resBody.dependencies.database.max_connections).toEqual(100);
-  //   expect(resBody.dependencies.database.active_connections).toEqual(1);
-  // });
 });

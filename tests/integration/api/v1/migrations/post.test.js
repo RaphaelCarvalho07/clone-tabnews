@@ -31,25 +31,4 @@ describe("API /api/v1/migrations", () => {
     expect(Array.isArray(res2Body)).toBe(true);
     expect(res2Body.length).toBe(0);
   });
-
-  // test("GET to /api/v1/status should return database info", async () => {
-  //   const res1 = await fetch(`${baseUrl}/api/v1/status`);
-  //   expect(res1.status).toBe(200);
-
-  //   const res1Body = await res1.json();
-  //   expect(res1Body.dependencies.database).toBeDefined();
-  //   expect(res1Body.dependencies.database.version).toBeDefined();
-  //   expect(res1Body.dependencies.database.max_connections).toBeDefined();
-  //   expect(res1Body.dependencies.database.active_connections).toBeDefined();
-
-  //   expect(typeof res1Body.dependencies.database.version).toBe("string");
-  //   expect(typeof res1Body.dependencies.database.max_connections).toBe("number");
-  //   expect(typeof res1Body.dependencies.database.active_connections).toBe(
-  //     "number",
-  //   );
-
-  //   expect(res1Body.dependencies.database.version).toEqual("16.0");
-  //   expect(res1Body.dependencies.database.max_connections).toEqual(100);
-  //   expect(res1Body.dependencies.database.active_connections).toEqual(1);
-  // });
 });
