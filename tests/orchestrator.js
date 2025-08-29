@@ -22,6 +22,7 @@ const waitForAllServices = async () => {
   console.log("waitForWebServer finalizado");
 };
 
-export default {
+const orchestrator = {
   waitForAllServices,
 };
+export default orchestrator;

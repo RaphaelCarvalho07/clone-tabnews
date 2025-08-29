@@ -43,11 +43,12 @@ const getNewClient = async () => {
   await client.connect();
   return client;
 };
-
-export default {
+const database = {
   query,
   getNewClient,
 };
+
+export default database;
 
 const getSSLConfig = () => {
   if (process.env.POSTGRES_CA) {
